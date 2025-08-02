@@ -15,7 +15,7 @@
         }
         
         .gradient-bg {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
         .skill-bar {
@@ -30,9 +30,14 @@
             background: linear-gradient(90deg, #6e8efb, #a777e3);
         }
         
+        .project-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(118, 75, 162, 0.2);
+        }
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(102, 126, 234, 0.2), 0 10px 10px -5px rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.5);
         }
         
         .nav-link {
@@ -100,6 +105,39 @@
         }
         
         /* Loading spinner */
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        
+        [data-aos] {
+            transition: all 0.6s ease;
+        }
+        
+        [data-aos="fade-up"] {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        [data-aos="fade-up"].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         .spinner {
             display: none;
             width: 24px;
@@ -156,7 +194,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white">
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-16 h-16 rounded-full bg-white bg-opacity-10 animate-pulse"></div>
+            <div class="absolute top-1/3 right-1/3 w-24 h-24 rounded-full bg-white bg-opacity-5 animate-pulse animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-full bg-white bg-opacity-7 animate-pulse animation-delay-4000"></div>
+        </div>
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0">
@@ -166,8 +210,8 @@
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#contact" class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition duration-300 text-center">Contact Me</a>
                         <a href="#projects" class="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-6 py-3 rounded-lg font-medium transition duration-300 text-center">View Projects</a>
-                        <a href="AbubakarResume.pdf" download class="bg-yellow-400 text-gray-800 hover:bg-yellow-500 px-6 py-3 rounded-lg font-medium transition duration-300 text-center flex items-center justify-center gap-2">
-                            <i class="fas fa-download"></i> Resume
+                        <a href="https://drive.google.com/file/d/YOUR_RESUME_ID/view" target="_blank" class="bg-yellow-400 text-gray-800 hover:bg-yellow-500 px-6 py-3 rounded-lg font-medium transition duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fas fa-file-alt"></i> View Resume
                         </a>
                     </div>
                 </div>
@@ -201,7 +245,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold">Education</h4>
-                                <p class="text-gray-600">Bachelor's in CSE (7.5 CGPA)</p>
+                                <p class="text-gray-600">B.Tech in CSE (Expected 2026)</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -340,7 +384,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-12">My <span class="text-purple-600">Skills</span></h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
             <!-- Technical Skills -->
             <div class="bg-gray-50 p-6 rounded-lg shadow-md">
                 <h3 class="text-xl font-semibold mb-4 flex items-center">
@@ -350,37 +394,50 @@
                 <div class="mb-6">
                     <h4 class="font-medium mb-2">Programming Languages</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Java</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Python</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">C</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">HTML/CSS</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">SQL</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Java</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Python</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">C</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">C++</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">HTML</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">CSS</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">JavaScript</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">SQL</span>
                     </div>
                 </div>
                 
                 <div class="mb-6">
                     <h4 class="font-medium mb-2">Frameworks & Technologies</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Spring Boot</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">React.js</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Hibernate</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">REST APIs</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">AWS</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Spring Boot</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Hibernate</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">JSP</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Servlets</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">RESTful APIs</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">React.js</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">JWT</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">OAuth2</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">JDBC</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">HQL</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Spring Security</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">JUnit</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Docker</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Swagger</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">AWS</span>
                     </div>
                 </div>
                 
                 <div>
                     <h4 class="font-medium mb-2">Tools</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">VS Code</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">IntelliJ IDEA</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Git/GitHub</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Postman</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Figma</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Power BI</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Git</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">GitHub</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Postman</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">IntelliJ IDEA</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Eclipse</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">VS Code</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Figma</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Power BI</span>
+                        <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">Excel</span>
                     </div>
                 </div>
             </div>
@@ -468,23 +525,6 @@
                     </div>
                 </div>
                 
-                <!-- Certification 2 -->
-                <div class="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition duration-300 p-6">
-                    <div class="flex items-start">
-                        <div class="bg-purple-100 p-3 rounded-lg mr-4">
-                            <i class="fas fa-database text-purple-600 text-2xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-lg">Database and SQL</h4>
-                            <p class="text-purple-600 mb-2">Infosys Springboard | Apr 2025</p>
-                            <ul class="list-disc list-inside text-gray-600">
-                                <li>31-hour course on relational databases and SQL queries</li>
-                                <li>Mastered table creation and data retrieval in Database Playground</li>
-                                <li>Gained hands-on experience through industry-aligned assignments</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -808,8 +848,8 @@
                         </div>
 
                         <div class="mt-6">
-                            <a href="AbubakarResume.pdf" download class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition duration-300 w-full flex items-center justify-center gap-2">
-                                <i class="fas fa-download"></i> Download Resume
+                            <a href="https://drive.google.com/file/d/1D1ZAarpJTbkqx0gBK-ayZr1P9t_eOwZo/view" target="_blank" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition duration-300 w-full flex items-center justify-center gap-2">
+                                <i class="fas fa-file-alt"></i> View My Resume
                             </a>
                         </div>
                     </div>
@@ -912,7 +952,14 @@
     </div>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+    // Initialize animations
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+
     // Mobile menu toggle
     document.getElementById('menu-toggle').addEventListener('click', function() {
         const menu = document.getElementById('mobile-menu');
