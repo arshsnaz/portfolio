@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import logoLight from "../assets/logo-light.png";
-import logoDark from "../assets/logo-dark.png";
+import logoLight from "../assets/ac-logo.png";
+import logoDark from "../assets/ac-logo-dark.png";
 
 const navLinks = [
   { name: "About", href: "#about" },
