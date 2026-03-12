@@ -40,8 +40,8 @@ const AchievementsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="achievements" className="py-24 md:py-32 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="achievements" className="py-16 sm:py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -61,7 +61,7 @@ const AchievementsSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-5 sm:gap-8 max-w-6xl mx-auto">
             {/* Achievements - 3 Columns */}
             <div className="lg:col-span-3 space-y-4">
               {/* Unique Flex - Horizontal Cards */}
@@ -71,16 +71,16 @@ const AchievementsSection = () => {
                   initial={{ opacity: 0, x: -30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="premium-card p-5 flex items-center gap-5"
+                  className="premium-card p-4 sm:p-5 flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-5"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon size={26} className="text-primary" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon size={24} className="text-primary sm:[&]:w-[26px] sm:[&]:h-[26px]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-foreground truncate">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.subtitle}</p>
+                    <h3 className="font-bold text-foreground text-sm sm:text-base">{item.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground">{item.subtitle}</p>
                   </div>
-                  <span className="px-4 py-1.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20 flex-shrink-0">
+                  <span className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20 flex-shrink-0">
                     {item.highlight}
                   </span>
                 </motion.div>
@@ -91,16 +91,16 @@ const AchievementsSection = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="premium-card p-5 flex items-center gap-5"
+                className="premium-card p-4 sm:p-5 flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-5"
               >
-                <div className="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
-                  <Medal size={26} className="text-orange-500" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
+                  <Medal size={24} className="text-orange-500" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-foreground">Sports Coordinator</h3>
-                  <p className="text-sm text-muted-foreground">Volleyball - 3 Years Leadership</p>
+                  <h3 className="font-bold text-foreground text-sm sm:text-base">Sports Coordinator</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Volleyball - 3 Years Leadership</p>
                 </div>
-                <span className="px-4 py-1.5 rounded-full text-xs font-bold bg-orange-100 text-orange-600 flex-shrink-0">
+                <span className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold bg-orange-100 text-orange-600 flex-shrink-0">
                   Teamwork
                 </span>
               </motion.div>
@@ -113,12 +113,12 @@ const AchievementsSection = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="lg:col-span-2"
             >
-              <div className="highlight-card p-6 h-full">
+              <div className="highlight-card p-4 sm:p-6 h-full">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <GraduationCap size={24} className="text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                    <GraduationCap size={22} className="text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">Education</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground">Education</h3>
                 </div>
 
                 {/* Timeline */}
@@ -134,9 +134,9 @@ const AchievementsSection = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-foreground">{edu.degree}</h4>
-                        <p className="text-sm text-muted-foreground mb-1">{edu.school}</p>
-                        <div className="flex items-center gap-3 text-sm">
+                        <h4 className="font-semibold text-foreground text-sm sm:text-base">{edu.degree}</h4>
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-1 break-words">{edu.school}</p>
+                        <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
                           <span className="text-muted-foreground">{edu.year}</span>
                           <span className="font-semibold text-primary">{edu.score}</span>
                         </div>
