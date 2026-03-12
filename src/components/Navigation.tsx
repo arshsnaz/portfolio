@@ -53,13 +53,13 @@ const Navigation = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm border-b border-border py-3" : "bg-transparent py-6"
+        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm border-b border-border py-2 sm:py-3" : "bg-transparent py-3 sm:py-6"
       }`}
     >
-      <div className="container max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <a href="#" aria-label="Abubakar Chanda Home" className="flex-shrink-0 relative">
-          <img src={logoLight} width="150" height="56" alt="Abubakar Chanda Light Mode Logo" className="h-14 w-auto object-contain block dark:hidden" />
-          <img src={logoDark} width="150" height="56" alt="Abubakar Chanda Dark Mode Logo" className="h-14 w-auto object-contain hidden dark:block" />
+          <img src={logoLight} width="150" height="56" alt="Abubakar Chanda Light Mode Logo" className="h-10 sm:h-14 w-auto object-contain block dark:hidden" />
+          <img src={logoDark} width="150" height="56" alt="Abubakar Chanda Dark Mode Logo" className="h-10 sm:h-14 w-auto object-contain hidden dark:block" />
         </a>
 
         {/* Desktop Navigation */}
@@ -89,8 +89,8 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex md:hidden items-center gap-2">
-          <div className="md:hidden"><ThemeToggle /></div>
+        <div className="flex md:hidden items-center gap-3">
+          <ThemeToggle />
           <button
             aria-label="Toggle Mobile Menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
