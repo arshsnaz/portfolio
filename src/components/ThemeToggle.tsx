@@ -27,7 +27,11 @@ const ThemeToggle = () => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => setIsDark(!isDark)}
-      className="p-2.5 rounded-lg bg-secondary border border-border hover:border-primary/50 transition-colors"
+      className={`p-2.5 rounded-lg border transition-colors ${
+        isDark
+          ? "bg-primary/10 border-primary/30 hover:border-primary/60"
+          : "bg-secondary border-border hover:border-primary/50"
+      }`}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDark ? (
