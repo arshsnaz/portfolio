@@ -1,4 +1,6 @@
 import Navigation from "@/components/Navigation";
+import { useEffect } from "react";
+import { toast } from "@/components/ui/use-toast";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
@@ -10,6 +12,13 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
+  useEffect(() => {
+    toast({
+      title: "Hi Recruiter 👋",
+      description: "Thanks for visiting my portfolio.",
+      duration: 6000,
+    });
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
       {/* Premium Background Effects */}
