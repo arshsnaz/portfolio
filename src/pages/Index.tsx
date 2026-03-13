@@ -16,7 +16,7 @@ const Index = () => {
     toast({
       title: "Hi Recruiter 👋",
       description: "Thanks for visiting my portfolio.",
-      duration: 4000,
+      duration: 3000,
     });
   }, []);
   return (
