@@ -6,7 +6,7 @@ const skillCategories = [
   {
     title: "Languages",
     icon: Code,
-    skills: ["Java 17", "Python", "JavaScript", "SQL", "C"],
+    skills: ["Java 17", "JavaScript", "SQL", "C"],
   },
   {
     title: "Frameworks",

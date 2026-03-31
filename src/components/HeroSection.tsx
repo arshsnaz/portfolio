@@ -130,7 +130,7 @@ const HeroSection = () => {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://drive.google.com/file/d/1DhZb5HRiPz13NDJ2DOCZ86wLnWRKjgFg/view?usp=drive_link" 
+                href="https://drive.google.com/file/d/1Rn9YrkNcYAPVjakm1C17Lj_9qLSn8W4_/view?usp=drive_link" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-hero-secondary flex items-center gap-2"

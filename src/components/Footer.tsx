@@ -13,6 +13,25 @@ const Footer = () => {
     { icon: Mail, href: "mailto:abubakarchanda3@gmail.com", label: "Email" },
   ];
 
+  // Smooth scroll handler for footer links
+  const handleFooterNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace(/.*#/, "");
+    setTimeout(() => {
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        const headerOffset = 80;
+        const elementPosition = elem.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+        window.history.pushState(null, "", href);
+      }
+    }, 100);
+  };
+
   return (
     <footer className="py-6 md:py-8 bg-card/30 backdrop-blur-xl border-t border-white/10 dark:border-white/5 relative overflow-hidden">
       {/* Subtle Premium Blur Effect inside footer */}
@@ -47,15 +66,19 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-wrap justify-center gap-5 text-sm"
           >
-            {["About", "Skills", "Experience", "Projects", "Contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:-translate-y-0.5"
-              >
-                {link}
-              </a>
-            ))}
+            {["About", "Skills", "Experience", "Projects", "Contact"].map((link) => {
+              const href = `#${link.toLowerCase()}`;
+              return (
+                <a
+                  key={link}
+                  href={href}
+                  onClick={e => handleFooterNavClick(e, href)}
+                  className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:-translate-y-0.5"
+                >
+                  {link}
+                </a>
+              );
+            })}
           </motion.div>
 
           {/* Social Links */}
