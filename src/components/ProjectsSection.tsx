@@ -41,7 +41,7 @@ const projects = [
     metrics: [{ value: "Team", label: "Collaboration" }, { value: "MERN", label: "Full Stack" }],
     status: "Completed",
     featured: false,
-    live: "https://zohairfanali.github.io/DoctorAppointment/",
+    live: "https://doctor-appointment-ten-sable.vercel.app/",
   },
   {
     title: "Raunak Furniture",
